@@ -1,3 +1,4 @@
+import { IUser } from './../user';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-first';
+
+  currentUser: IUser = {
+    email: "bargatga@gmail.com",
+    username: "SuPer5454",
+    birthdate: new Date(2000, 1, 1)
+  }
 }

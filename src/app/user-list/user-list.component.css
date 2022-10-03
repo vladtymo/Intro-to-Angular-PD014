@@ -1,0 +1,23 @@
+.user-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.user-list li {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.user-list li:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+.create-user-block {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

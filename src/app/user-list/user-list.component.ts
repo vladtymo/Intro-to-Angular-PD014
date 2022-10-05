@@ -20,7 +20,11 @@ export class UserListComponent {
     };
   }
 
-  removeLastItem(user: IUser): void {
+  isITStepDomain(email: string): boolean {
+    return email.endsWith('itstep.com');
+  }
+
+  removeItem(user: IUser): void {
     const index = this.users.indexOf(user, 0);
     if (index != -1) {
       this.users.splice(index, 1);
@@ -29,7 +33,10 @@ export class UserListComponent {
 
   createUser(): void {
     if (this.currentUser)
-      console.log(this.currentUser);
-    this.users.push(this.currentUser);
+      this.users.push({
+        username: this.currentUser.username,
+        email: this.currentUser.email,
+        birthdate: this.currentUser.birthdate
+      });
   }
 }

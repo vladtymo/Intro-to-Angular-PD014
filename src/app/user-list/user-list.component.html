@@ -19,8 +19,9 @@
         alt="No items">
 </div>
 
+<!-- [ngClass]="{'item-highlight': isITStepDomain(user.email)}" -->
 <ul class="user-list">
-    <li *ngFor="let user of users" (click)="removeLastItem(user)">
+    <li *ngFor="let user of users" (click)="removeItem(user)" [class.item-highlight]="isITStepDomain(user.email)">
         {{user.username}} | {{user.email}}
     </li>
 </ul>

@@ -1,3 +1,27 @@
-<p>Hello dear, <strong>{{currentUser.email | uppercase}}</strong></p>
-<p>Your username is <strong>{{currentUser.username | lowercase}}</strong></p>
-<p>Your birthdate is <strong>{{currentUser.birthdate | date}}</strong></p>
+<section>
+    <h2>Create New User</h2>
+    <div class="create-user-block">
+        <label>Email:
+            <input type="email" [(ngModel)]="currentUser.email">
+        </label>
+        <label>Username:
+            <input type="text" [(ngModel)]="currentUser.username">
+        </label>
+        <label>Birthdate:
+            <input type="date" [(ngModel)]="currentUser.birthdate">
+        </label>
+        <button (click)="createUser()">Create</button>
+    </div>
+</section>
+
+<section>
+    <h2>User List</h2>
+    <app-user-list [users]="users"></app-user-list>
+    <p class="text-center">User count: {{users.length}}</p>
+</section>
+
+<section>
+    <h2>Users from IT Step</h2>
+    <app-user-list [users]="usersFromITStep"></app-user-list>
+    <p class="text-center">User count: {{users.length}}</p>
+</section>

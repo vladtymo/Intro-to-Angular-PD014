@@ -1,29 +1,15 @@
-<h2>Create New User</h2>
-<div class="create-user-block">
-    <label>Email:
-        <input type="email" [(ngModel)]="currentUser.email">
-    </label>
-    <label>Username:
-        <input type="text" [(ngModel)]="currentUser.username">
-    </label>
-    <label>Birthdate:
-        <input type="date" [(ngModel)]="currentUser.birthdate">
-    </label>
-    <button (click)="createUser()">Create</button>
-</div>
-
-<h2>User List</h2>
-
 <div *ngIf="users.length == 0" class="text-center">
-    <img width="300" src="https://cdn.dribbble.com/users/1753953/screenshots/3818675/animasi-emptystate.gif"
+    <img width="100" src="https://cdn.dribbble.com/users/1753953/screenshots/3818675/animasi-emptystate.gif"
         alt="No items">
 </div>
 
-<!-- [ngClass]="{'item-highlight': isITStepDomain(user.email)}" -->
+<!-- Structural directives - effect DOM (ngIf, ngFor, ngSwitch) -->
+<!-- Attribute directives - effect element attributes (ngClass, ngStyle) -->
+<!-- Event binding: (event_name)="handler(parameters)" -->
+
 <ul class="user-list">
-    <li *ngFor="let user of users" (click)="removeItem(user)" [class.item-highlight]="isITStepDomain(user.email)">
-        {{user.username}} | {{user.email}}
+    <li *ngFor="let user of users" (click)="removeItem(user)" [class.admin-user]="isAdmin(user)">
+        {{user.username}} | {{user.email}} | {{user.role | enumToString}}
     </li>
 </ul>
-
-<p class="text-center">User count: {{users.length}}</p>
+<!-- [ngClass]="{'item-highlight': isITStepDomain(user.email)}" -->

@@ -1,4 +1,5 @@
-import { IUser } from './../../user';
+import { USERS, USERS_FROM_IT_STEP } from 'src/data/users';
+import { IUser, RoleType } from './../../user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,15 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  currentUser: IUser = {
-    email: "bargatga@gmail.com",
-    username: "SuPer5454",
-    birthdate: new Date(2000, 1, 1)
-  }
+  users: IUser[] = USERS;
+  usersFromITStep: IUser[] = USERS_FROM_IT_STEP;
+  currentUser: IUser;
 
-  constructor() { }
+  constructor() {
+    this.currentUser = {
+      username: '',
+      email: '',
+      birthdate: new Date(),
+      role: RoleType.User
+    };
+  }
 
   ngOnInit(): void {
   }
 
+  createUser(): void {
+    if (this.currentUser)
+      this.users.push({
+        username: this.currentUser.username,
+        email: this.currentUser.email,
+        birthdate: this.currentUser.birthdate,
+        role: RoleType.User
+      });
+  }
 }

@@ -1,6 +1,5 @@
-import { IUser } from './../../user';
-import { Component } from '@angular/core';
-import { USERS } from 'src/data/users';
+import { IUser, RoleType } from './../../user';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user-list',
@@ -9,19 +8,9 @@ import { USERS } from 'src/data/users';
 })
 export class UserListComponent {
 
-  currentUser: IUser;
-  users: IUser[] = USERS;
+  @Input() users: IUser[] = [];
 
   constructor() {
-    this.currentUser = {
-      username: '',
-      email: '',
-      birthdate: new Date()
-    };
-  }
-
-  isITStepDomain(email: string): boolean {
-    return email.endsWith('itstep.com');
   }
 
   removeItem(user: IUser): void {
@@ -31,12 +20,7 @@ export class UserListComponent {
     }
   }
 
-  createUser(): void {
-    if (this.currentUser)
-      this.users.push({
-        username: this.currentUser.username,
-        email: this.currentUser.email,
-        birthdate: this.currentUser.birthdate
-      });
+  isAdmin(user: IUser): boolean {
+    return user.role == RoleType.Admin;
   }
 }

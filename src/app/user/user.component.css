@@ -1,0 +1,5 @@
+.create-user-block {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

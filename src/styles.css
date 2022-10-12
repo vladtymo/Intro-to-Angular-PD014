@@ -1,19 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-h1,
-h2,
-h3 {
-    text-align: center;
-}
-
-.text-center {
-    text-align: center;
-}
-
 html,
 body {
     height: 100%;
@@ -24,7 +10,24 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+#main-container {
+    /* 100% of viewport height */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .container {
     padding: 20px;
+    flex-grow: 1;
+}
 
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
 }

@@ -1,16 +1,24 @@
 <section>
     <h2>Create New User</h2>
     <div class="create-user-block">
-        <label>Email:
-            <input type="email" [(ngModel)]="currentUser.email">
-        </label>
-        <label>Username:
-            <input type="text" [(ngModel)]="currentUser.username">
-        </label>
-        <label>Birthdate:
-            <input type="date" [(ngModel)]="currentUser.birthdate">
-        </label>
-        <button (click)="createUser()">Create</button>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="currentUser.email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="currentUser.username">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Birthdate</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="currentUser.birthdate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-fab color="primary" (click)="createUser()">
+            <mat-icon>add</mat-icon>
+        </button>
     </div>
 </section>
 

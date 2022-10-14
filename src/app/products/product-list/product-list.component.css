@@ -1,0 +1,19 @@
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.product-card {
+    /* margin-bottom: 20px;
+    max-width: 330px; */
+}
+
+.product-card-avatar {
+    background-image: url('https://karanzi.websites.co.in/obaju-turquoise/img/product-placeholder.png');
+    background-size: cover;
+}
+
+.product-card-image {
+    object-fit: cover;
+}

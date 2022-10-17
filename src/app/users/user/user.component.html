@@ -1,0 +1,15 @@
+<button mat-icon-button routerLink="create">
+    <mat-icon>person_add</mat-icon>
+</button>
+
+<section>
+    <h2>User List</h2>
+    <app-user-list [users]="users"></app-user-list>
+    <p class="text-center">User count: {{users.length}}</p>
+</section>
+
+<section>
+    <h2>Users from IT Step</h2>
+    <app-user-list [users]="usersFromITStep"></app-user-list>
+    <p class="text-center">User count: {{users.length}}</p>
+</section>

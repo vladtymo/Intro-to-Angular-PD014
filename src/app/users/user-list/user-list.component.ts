@@ -1,4 +1,4 @@
-import { IUser, RoleType } from './../../user';
+import { IUser, RoleType } from '../../../user';
 import { Component, Input } from '@angular/core';
 
 @Component({

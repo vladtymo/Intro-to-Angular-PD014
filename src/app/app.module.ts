@@ -1,10 +1,9 @@
-import { UserComponent } from './user/user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { FormsModule } from '@angular/forms';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnumToStringPipe } from './enum-to-string.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
@@ -15,6 +14,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './users/user/user.component';
+import { AddUserComponent } from './users/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
-    ProductListComponent
+    ProductListComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

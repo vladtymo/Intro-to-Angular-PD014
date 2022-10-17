@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IUser, RoleType } from 'src/user';
 import { DateValidator } from 'src/app/validators/date-validator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-user',
@@ -23,7 +24,7 @@ export class AddUserComponent implements OnInit {
   // 3 - using FormBuilder
   userForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {
     // this.currentUser = {
     //   username: '',
     //   email: '',
@@ -34,6 +35,12 @@ export class AddUserComponent implements OnInit {
       username: ['', Validators.required],
       email: ['example@gmail.com', [Validators.required, Validators.email]],
       birthdate: [new Date(), DateValidator.LessThanToday]
+    });
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, "OK", {
+      duration: 5 * 1000, // 5 sec
     });
   }
 
@@ -54,10 +61,11 @@ export class AddUserComponent implements OnInit {
     //   }
 
     if (this.userForm.invalid) {
-      alert("Invalid data!");
+      this.openSnackBar("Invalid data!");
       return;
     }
     let user: IUser = this.userForm.value;
-    console.log(user);
+    console.log(user); // only for test
+    this.openSnackBar("User has been successfully created!");
   }
 }

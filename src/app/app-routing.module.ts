@@ -1,3 +1,4 @@
+import { LoginComponent } from './account/login/login.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserListComponent } from './users/user-list/user-list.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'users', component: UserComponent },
   { path: 'users/create', component: AddUserComponent },
   { path: 'products', component: ProductListComponent },
+  { path: 'account/login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

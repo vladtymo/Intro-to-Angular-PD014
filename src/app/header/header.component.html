@@ -14,8 +14,14 @@
         <button mat-icon-button routerLink="/share">
             <mat-icon>share</mat-icon>
         </button>
-        <button mat-icon-button routerLink="/account/login">
+        <button mat-icon-button routerLink="/tracks">
+            <mat-icon>audiotrack</mat-icon>
+        </button>
+        <button class="login-btn" mat-icon-button routerLink="/account/login">
             <mat-icon>login</mat-icon>
+        </button>
+        <button mat-icon-button (click)="logout()">
+            <mat-icon>logout</mat-icon>
         </button>
     </mat-toolbar>
 </header>

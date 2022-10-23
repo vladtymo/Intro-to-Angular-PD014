@@ -1,0 +1,9 @@
+<mat-selection-list #track [multiple]="false">
+<mat-list-option *ngFor="let track of tracks" [value]="track.name">
+    {{track.name}}
+</mat-list-option>
+</mat-selection-list>
+<hr>
+<p>
+    Option selected: {{track.selectedOptions.selected[0]?.value}}
+</p>

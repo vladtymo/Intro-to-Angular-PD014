@@ -13,10 +13,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserComponent } from './users/user/user.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { LoginComponent } from './account/login/login.component';
+import { TrackListComponent } from './tracks/track-list/track-list.component';
+import { TokenInterceptor } from './account/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { LoginComponent } from './account/login/login.component';
     FooterComponent,
     ProductListComponent,
     AddUserComponent,
-    LoginComponent
+    LoginComponent,
+    TrackListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,11 @@ import { LoginComponent } from './account/login/login.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

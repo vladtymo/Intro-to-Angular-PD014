@@ -8,12 +8,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './users/user/user.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
+import { TrackListComponent } from './tracks/track-list/track-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'users', component: UserComponent },
   { path: 'users/create', component: AddUserComponent },
   { path: 'products', component: ProductListComponent },
+  { path: 'tracks', component: TrackListComponent },
   { path: 'account/login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ];

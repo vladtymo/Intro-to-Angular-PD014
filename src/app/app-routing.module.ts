@@ -1,3 +1,4 @@
+import { AuthGuard } from './account/auth.guard';
 import { LoginComponent } from './account/login/login.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -11,7 +12,8 @@ import { AddUserComponent } from './users/add-user/add-user.component';
 import { TrackListComponent } from './tracks/track-list/track-list.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  // Route Guard
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'users', component: UserComponent },
   { path: 'users/create', component: AddUserComponent },
   { path: 'products', component: ProductListComponent },

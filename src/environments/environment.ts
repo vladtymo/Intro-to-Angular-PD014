@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: "http://webApi-Keyboard.somee.com/api/"//"https://localhost:7076/api/"
 };
 
 /*

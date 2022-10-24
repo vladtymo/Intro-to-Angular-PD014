@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ITrack } from './track';
 
 @Injectable({
@@ -8,11 +9,13 @@ import { ITrack } from './track';
 })
 export class TrackService {
 
-  private apiUrl: string = "https://localhost:7076/api/";
-  
-  constructor(private httpClient: HttpClient) { }
+  private contollerRoute: string;
+
+  constructor(private httpClient: HttpClient) {
+    this.contollerRoute = environment.apiUrl + 'tracks/';
+  }
 
   getAllTracks(): Observable<ITrack[]> {
-    return this.httpClient.get<ITrack[]>(this.apiUrl + 'tracks');
+    return this.httpClient.get<ITrack[]>(this.contollerRoute);
   }
 }

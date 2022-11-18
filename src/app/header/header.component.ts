@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AppStateService } from './../app-state.service';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AccountService } from '../account/account.service';
 
 @Component({
@@ -8,7 +9,18 @@ import { AccountService } from '../account/account.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private accountService: AccountService) { }
+  errors: number = 0;
+
+  constructor(private accountService: AccountService,
+    private stateService: AppStateService,
+    private cdr: ChangeDetectorRef) {
+
+    this.stateService.errors$.subscribe(errors => {
+      this.errors = errors;
+      this.cdr.markForCheck(); // Fix View not updating
+    });
+
+  }
 
   ngOnInit(): void {
   }
